@@ -59,5 +59,14 @@ class SimpleTableViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
     
+    // MARK: UITableViewDelegate function
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let messageString = "You tapped row \(indexPath.row)"
+        let alertController = UIAlertController(title: "Row Tapped", message: messageString, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: { print("\(messageString)") })
+    }
+    
 }
 
